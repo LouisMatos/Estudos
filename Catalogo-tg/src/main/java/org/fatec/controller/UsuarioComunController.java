@@ -40,22 +40,22 @@ public class UsuarioComunController implements Serializable{
 			
 			/*if(usuario.getSenha().equals(usuario.getConfirmaSenha())){*/
 				
-				usuario.setTipoUsuario(TipoUsuario.ADMINISTRADOR);
+				usuario.setTipoUsuario(TipoUsuario.COMUN);
 				if (!dao.existeEmail(usuario)) {
 					dao.save(usuario);
-					System.out.println("1");
+					
 					
 				} else {
 					facesContext = FacesContext.getCurrentInstance();
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente.w");
 		            facesContext.addMessage("register-form:validaUsuario", message);
-		            System.out.println("2");
+		            
 					//return "/login.xhtml?faces-redirect=false";
 				}
 				facesContext = FacesContext.getCurrentInstance();
 				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Cadastro concluido com sucesso!");
 		        facesContext.addMessage("register-form:validaUsuario", message);
-		        System.out.println("3");
+		       
 		        /*}else{
 				facesContext = FacesContext.getCurrentInstance();
 	            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Senhas não batem...", "As senhas informadas não são iguais! Tente novamente");

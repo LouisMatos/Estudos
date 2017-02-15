@@ -33,7 +33,7 @@ public class LoginController implements Serializable{
 	
 	private UsuarioDAOImplementation dao = new UsuarioDAOImplementation();
 	
-	private Logger log;
+	public Usuario usuario2 = new Usuario();
 	
 	public void efetuarLogin() throws IOException{
 		Usuario user = new Usuario();
@@ -45,6 +45,8 @@ public class LoginController implements Serializable{
 		if(user != null && user.getEmail().equals(usuario.getEmail()) && user.getSenha().equals(usuario.getSenha()) ){
 			// colocar usuario na sessão, refazer
 			usuarioLogadoController.logar(user);
+			
+			usuario2 = user;
 			
 			SessionContext.getInstance().setAttribute("info_user", user);
 			
