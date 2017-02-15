@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIViewRoot;
+import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
@@ -42,9 +44,7 @@ public class UsuarioComunController implements Serializable{
 				
 				usuario.setTipoUsuario(TipoUsuario.COMUN);
 				if (!dao.existeEmail(usuario)) {
-					dao.save(usuario);
-					
-					
+					dao.save(usuario);	
 				} else {
 					facesContext = FacesContext.getCurrentInstance();
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente.w");

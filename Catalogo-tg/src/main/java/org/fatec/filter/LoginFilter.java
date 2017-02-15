@@ -1,5 +1,8 @@
 package org.fatec.filter;
 import java.io.IOException;
+
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -12,6 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import org.fatec.model.Usuario;
 public class LoginFilter implements Filter {
+	
+	ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 	private final static String FILTER_APPLIED = "_security_filter_applied";
 	public LoginFilter() {
 	}
@@ -41,7 +46,8 @@ public class LoginFilter implements Filter {
 			}
 			if ((user == null) || (user.equals(""))) {
 				//hreq.getRealPath("/index.xhtml");
-				hresp.sendRedirect("../../index.xhtml");
+				
+				hresp.sendRedirect(context.getRequestContextPath() + "../../../../index.xhtml");
 				return;
 			}
 		}

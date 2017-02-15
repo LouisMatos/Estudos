@@ -50,12 +50,15 @@ public class LoginController implements Serializable{
 			
 			SessionContext.getInstance().setAttribute("info_user", user);
 			
-			if(user.getTipoUsuario() == TipoUsuario.ADMINISTRADOR){	
+			
+			FacesContext.getCurrentInstance().getExternalContext().redirect("aplicacao/principal.xhtml");
+			// procurar solução para nivel de acesso diferente
+			/*if(user.getTipoUsuario() == TipoUsuario.ADMINISTRADOR){	
 				FacesContext.getCurrentInstance().getExternalContext().redirect("aplicacao/aluno/aluno.xhtml");
 				//return "/aplicacao.aluno.aluno?faces-redirect=true";
 			}else{
 				FacesContext.getCurrentInstance().getExternalContext().redirect("aplicacao/pesquisa/pesquisa.xhtml");
-			}
+			}*/
 		}else{
 			facesContext = FacesContext.getCurrentInstance();
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Fails", " - Usuário ou senha inválidos! Tente novamente.");
