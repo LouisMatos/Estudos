@@ -37,9 +37,7 @@ public class UsuarioComunController implements Serializable{
 	public void grava(){
 		
 		try{
-			
-			System.out.println(usuario.getSenha() + " " + usuario.getConfirmaSenha());
-			
+						
 			/*if(usuario.getSenha().equals(usuario.getConfirmaSenha())){*/
 				
 				usuario.setTipoUsuario(TipoUsuario.COMUN);
@@ -47,7 +45,7 @@ public class UsuarioComunController implements Serializable{
 					dao.save(usuario);	
 				} else {
 					facesContext = FacesContext.getCurrentInstance();
-					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente.w");
+					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente!");
 		            facesContext.addMessage("register-form:validaUsuario", message);
 		            
 					//return "/login.xhtml?faces-redirect=false";
