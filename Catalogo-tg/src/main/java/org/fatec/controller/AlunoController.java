@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.PostLoad;
 
 import org.fatec.impl.AlunoDAOImplementation;
 import org.fatec.model.Aluno;
@@ -22,7 +23,8 @@ public class AlunoController {
 	
 	private FacesContext facesContext;
 	
-	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+	
+	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
 
 	 @PostConstruct
 	    public void init() {
