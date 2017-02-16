@@ -6,10 +6,12 @@
     xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-		
+	
+	
+	
 	<script type="text/javascript">
 			$(document).ready(function(){
-				$('#lista_aluno_form:example').dataTable({                              
+				$("#example").dataTable({                              
 					 "oLanguage": {
 					    "sProcessing": "Aguarde enquanto os dados são carregados ...",
 					    "sLengthMenu": "Mostrar _MENU_ registros por pagina",
@@ -32,28 +34,46 @@
 	</h:head>
 	<h:body>
 	<ui:include src="../topmenu.xhtml"></ui:include>
-	<h:form id="lista_aluno_form"  role="form" style="display: block;">
+	<h:form id="teste" >
 		<div class="container">
 			<div class="col-sm-12">
 				<h2>Listar Alunos</h2>
 				<hr/>
 			</div>
 		
-			
-		
-		
-		
-			<h:dataTable value="#{alunoController.alunos}" var="employee" id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-			   <h:column>    				
-			      <f:facet name="header">Nome</f:facet>    				
-			      #{employee.nome}
-			   </h:column>
-			   <h:column>
-			      <f:facet name="header">Registro</f:facet>
-			      #{employee.registro}
-			   </h:column>
-			</h:dataTable>
-			
+			<table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+		        <thead>
+		            <tr>
+		                <th>ID</th>
+		                <th>Nome</th>
+		                <th>Registro</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr>
+		                <td>Tiger Nixon</td>
+		                <td>System Architect</td>
+		                <td>Edinburgh</td>
+		               
+		            </tr>
+		            <tr>
+		                <td>Garrett Winters</td>
+		                <td>Accountant</td>
+		                <td>Tokyo</td>
+		            </tr>
+		            <tr>
+		                <td>Ashton Cox</td>
+		                <td>Junior Technical Author</td>
+		                <td>San Francisco</td>
+		            </tr>
+		            <tr>
+		                <td>Cedric Kelly</td>
+		                <td>Senior Javascript Developer</td>
+		                <td>Edinburgh</td>
+		           
+		            </tr>
+		          </tbody>
+		     </table>
 			
 		</div>
 	</h:form>

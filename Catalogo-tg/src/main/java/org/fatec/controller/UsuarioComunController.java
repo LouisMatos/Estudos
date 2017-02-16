@@ -2,7 +2,9 @@ package org.fatec.controller;
 
 import java.io.Serializable;
 
+import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
+import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIViewRoot;
@@ -42,7 +44,8 @@ public class UsuarioComunController implements Serializable{
 				
 				usuario.setTipoUsuario(TipoUsuario.COMUN);
 				if (!dao.existeEmail(usuario)) {
-					dao.save(usuario);	
+					dao.save(usuario);
+					this.refresh();
 				} else {
 					facesContext = FacesContext.getCurrentInstance();
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente!");
@@ -71,15 +74,14 @@ public class UsuarioComunController implements Serializable{
 	
 	
 	
-	
-	public void teste(AjaxBehaviorEvent event){
-		mensagem = usuario.getEmail();
+	public void refresh() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		Application application = context.getApplication();
+		ViewHandler viewHandler = application.getViewHandler();
+		UIViewRoot viewRoot = viewHandler.createView(context, context.getViewRoot().getViewId());
+		context.setViewRoot(viewRoot);
+		context.renderResponse();
 	}
-	
-	
-	
-
-	
 	
 	
 	public String cancela() {
