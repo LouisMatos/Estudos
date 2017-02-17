@@ -6,7 +6,7 @@
     xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-	
+		
 	</h:head>
 	<h:body>
 	<ui:include src="../topmenu.xhtml"></ui:include>
@@ -45,13 +45,15 @@
 					<div class="control-group" align="right">
 					  <label class="control-label" for="button1id"></label>
 					  <div class="controls">
-					  	<h:commandButton value="Cadastrar"  class="btn btn-default" disabled="">
-					  		<f:ajax execute="@form" render="cadAluno" listener="#{alunoController.cadastrarAluno}"  resetValues="true"/>
+					  	<h:commandButton value="Cadastrar"  class="btn btn-default" onclick="limpa_campos_cad_aluno();">
+					  		<f:ajax  execute="@form" render="cadAluno" listener="#{alunoController.cadastrarAluno}" />
 						</h:commandButton>
 					  	
-					  	<h:commandButton value="Cancelar"  class="btn btn-default" disabled="">
+					  	<h:commandButton value="Cancelar"  class="btn btn-default" disabled="" >
 					  		<f:ajax execute="@form" render="cadAluno" listener="#{alunoController.cancelar}"  resetValues="true"/>
 						</h:commandButton>
+					  	
+					  	
 					  	
 					  </div>
 					</div>

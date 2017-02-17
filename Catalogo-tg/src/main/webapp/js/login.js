@@ -72,5 +72,17 @@ function isEmailLogin(){
 	}else{
 		return true
 	}
+	
 }
 	
+
+function limpa_campos_cad_usuario_comum(){
+	document.getElementById("register-form:email_cadastro").value = "";
+	document.getElementById("register-form:senha_cadastro").value = "";
+	document.getElementById("register-form:confirma_senha_cadastro").value = "";
+}
+
+function limpa_campos_login(){
+	document.getElementById("login-form:email").value = "";
+	document.getElementById("login-form:senha").value = "";
+}

@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
@@ -75,7 +76,8 @@ public class LoginController implements Serializable{
 	public void doEfetuarLogout() throws IOException {
 		SessionContext.getInstance().encerrarSessao();
 		
-		FacesContext.getCurrentInstance().getExternalContext().redirect("../../index.xhtml");
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		FacesContext.getCurrentInstance().getExternalContext().redirect(context.getRequestContextPath());
 	}
 	
 	

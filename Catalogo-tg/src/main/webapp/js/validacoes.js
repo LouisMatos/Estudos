@@ -20,3 +20,8 @@ function soLetrasMI(v){
 function soNumeros(v){
 	return v.replace(/\D/g,"") //Remove tudo o que não é dígito
 }
+
+function limpa_campos_cad_aluno(){
+	document.getElementById("form_aluno:nome_aluno").value = "";
+	document.getElementById("form_aluno:registro_aluno").value = "";
+}

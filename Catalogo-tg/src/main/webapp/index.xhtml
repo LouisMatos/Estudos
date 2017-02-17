@@ -5,14 +5,10 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/bootstrap.css" />
-	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/bootstrap-theme.css" />
-	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/bootstrap-theme.min.css" />
+	<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" />
+	<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/login.css" />
-	<script src="#{request.contextPath}/js/bootstrap.min.js"></script>
-	<script src="#{request.contextPath}/js/bootstrap.js"></script>
-	<script src="#{request.contextPath}/js/jquery-3.1.1.min.js"></script>
 	<script src="#{request.contextPath}/js/login.js"></script>
 	
 </h:head>
@@ -47,13 +43,12 @@
 										</div>
 										
 										<h:message for="erroLogin" id="erroLogin" showDetail="true" />
-										
-										
+									
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
-													<h:commandButton value="Efetuar Login"  class="form-control btn btn-register" disabled="">
-												        <f:ajax execute="@form" render="erroLogin" listener="#{loginController.efetuarLogin}" resetValues="true" />
+													<h:commandButton value="Efetuar Login"  class="form-control btn btn-register" disabled="" >
+												        <f:ajax execute="@form" render="erroLogin" listener="#{loginController.efetuarLogin}"  />
 												    </h:commandButton>
 												</div>
 											</div>

@@ -28,18 +28,8 @@ public class AlunoController {
 	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
 
 		
-	    public void init() {
-	        alunos = dao.getAllAlunos();
-	        System.out.println("teste init");
-	    }
+	   
 	
-	 
-	
-	 public void destroi(){
-		 alunos = null;
-		 System.out.println("teste destroi");
-	    
-	 }
 
 	public void cadastrarAluno(){
 		try{
@@ -60,7 +50,9 @@ public class AlunoController {
 	
 	
 	
-	
+	public void init() {
+		alunos = dao.getAllAlunos();
+	}
 	
 	
 	public ArrayList<Aluno> getAlunos() {

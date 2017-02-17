@@ -45,7 +45,6 @@ public class UsuarioComunController implements Serializable{
 				usuario.setTipoUsuario(TipoUsuario.COMUN);
 				if (!dao.existeEmail(usuario)) {
 					dao.save(usuario);
-					this.refresh();
 				} else {
 					facesContext = FacesContext.getCurrentInstance();
 					FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "E-mail já cadastrado! Tente novamente!");
@@ -71,18 +70,7 @@ public class UsuarioComunController implements Serializable{
 		}
 		//return "/login.xhtml?faces-redirect=false";
 	}
-	
-	
-	
-	public void refresh() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		Application application = context.getApplication();
-		ViewHandler viewHandler = application.getViewHandler();
-		UIViewRoot viewRoot = viewHandler.createView(context, context.getViewRoot().getViewId());
-		context.setViewRoot(viewRoot);
-		context.renderResponse();
-	}
-	
+
 	
 	public String cancela() {
 		return "index.xhtml?faces-redirect=true";
