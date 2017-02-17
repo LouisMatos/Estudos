@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,11 +27,19 @@ public class AlunoController {
 	
 	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
 
-	 @PostConstruct
+		
 	    public void init() {
 	        alunos = dao.getAllAlunos();
+	        System.out.println("teste init");
 	    }
 	
+	 
+	
+	 public void destroi(){
+		 alunos = null;
+		 System.out.println("teste destroi");
+	    
+	 }
 
 	public void cadastrarAluno(){
 		try{

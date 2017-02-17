@@ -10,15 +10,16 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class TopmenuController {
-
+	
+	private ExternalContext context;
 	
 	public void cadastrarAluno() throws IOException{
-		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		context = FacesContext.getCurrentInstance().getExternalContext();
 		FacesContext.getCurrentInstance().getExternalContext().redirect(context.getRequestContextPath() + "/aplicacao/aluno/cadastro_aluno.xhtml");
 	}
 	
 	public void listarAlunos() throws IOException{
-		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		context = FacesContext.getCurrentInstance().getExternalContext();
 		FacesContext.getCurrentInstance().getExternalContext().redirect(context.getRequestContextPath() + "/aplicacao/aluno/listar_aluno.xhtml");
 	}
 	
