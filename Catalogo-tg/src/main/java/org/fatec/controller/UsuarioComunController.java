@@ -44,6 +44,7 @@ public class UsuarioComunController implements Serializable{
 				
 				usuario.setTipoUsuario(TipoUsuario.COMUN);
 				if (!dao.existeEmail(usuario)) {
+					usuario.setEmail(usuario.getEmail().toUpperCase());
 					dao.save(usuario);
 				} else {
 					facesContext = FacesContext.getCurrentInstance();

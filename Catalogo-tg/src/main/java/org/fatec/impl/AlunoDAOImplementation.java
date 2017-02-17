@@ -45,5 +45,20 @@ public class AlunoDAOImplementation extends GenericDAOImplementation<Aluno> impl
 		entityManager.getTransaction().commit();
 		return (ArrayList<Aluno>) query.getResultList();
 	}
+	
+	public void excluiAluno(int id){
+		if(!entityManager.getTransaction().isActive()){
+			entityManager.getTransaction().begin();
+		}
+		
+		Query query = entityManager.createQuery("delete from Aluno u where u.id = :pID ").setParameter("pID", id);
+		
+		int result = query.executeUpdate();
+		
+		System.out.println(result);
+		
+		entityManager.flush();
+		entityManager.getTransaction().commit();
+	}
 
 }

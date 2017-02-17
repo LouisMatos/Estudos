@@ -43,7 +43,7 @@ public class LoginController implements Serializable{
 		
 	
 	
-		if(user != null && user.getEmail().equals(usuario.getEmail()) && user.getSenha().equals(usuario.getSenha()) ){
+		if(user != null && user.getEmail().toLowerCase().equals(usuario.getEmail().toLowerCase()) && user.getSenha().equals(usuario.getSenha()) ){
 			// colocar usuario na sessão, refazer
 			usuarioLogadoController.logar(user);
 			

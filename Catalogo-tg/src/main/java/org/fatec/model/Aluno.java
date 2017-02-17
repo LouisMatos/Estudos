@@ -21,7 +21,7 @@ public class Aluno implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Long id;
+	private int id;
 	
 	@Column
 	private String nome;
@@ -29,11 +29,11 @@ public class Aluno implements Serializable{
 	@Column
 	private String registro;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -57,7 +57,7 @@ public class Aluno implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((registro == null) ? 0 : registro.hashCode());
 		return result;
@@ -72,10 +72,7 @@ public class Aluno implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)

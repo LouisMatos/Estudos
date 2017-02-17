@@ -33,6 +33,7 @@ public class AlunoController {
 
 	public void cadastrarAluno(){
 		try{
+			aluno.setNome(aluno.getNome().toUpperCase());
 			if(!dao.existeAluno(aluno)){
 				dao.save(aluno);
 			}else{
@@ -48,6 +49,14 @@ public class AlunoController {
 		}
 	}
 	
+	
+	public void excluirAluno(int id){
+		try{
+			dao.excluiAluno(id);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public void init() {
@@ -71,6 +80,34 @@ public class AlunoController {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	 public void destroyWorld() {
+	        addMessage("System Error", "Please try again later.");
+	    }
+	     
+	    public void addMessage(String summary, String detail) {
+	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
