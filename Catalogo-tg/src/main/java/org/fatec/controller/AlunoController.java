@@ -30,8 +30,17 @@ public class AlunoController {
 	
 	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
 
-		
+	private int idt;
+	
+	public void setIdt(int idt){
+		this.idt = idt;
+	}
+	
+	public int getIdt(){
+		return this.idt;
+	}
 	   
+	
 	
 
 	public void cadastrarAluno(){
@@ -53,9 +62,9 @@ public class AlunoController {
 	}
 	
 	
-	public void excluirAluno(int id){
+	public void excluirAluno(){
 		try{
-			dao.excluiAluno(id);
+			dao.excluiAluno(getIdt());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

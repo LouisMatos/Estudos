@@ -27,7 +27,7 @@
 			
 				<thead>
 					<tr>
-						<th align="center">DDDDD</th>
+						<th align="center">ID</th>
 						<th align="center">Nome</th>
 						<th align="center">Registro</th>
 						<th align="center">Acões</th>
@@ -55,11 +55,11 @@
 								<div class="col-sm">
 								
 								
-								<h:commandButton value="Excluir" class="btn btn-danger" actionListener="#{alunoController.excluirAluno(o.id)}"></h:commandButton>
-								
-								
-								
-								
+								<h:commandButton onclick="if (! confirm('Deseja realmente Excluir esse aluno?')) return false"
+								value="Excluir" action="#{alunoController.excluirAluno}"  class="btn btn-danger" >
+								   <f:setPropertyActionListener target="#{alunoController.idt}" value="#{o.id}" />
+								</h:commandButton> 
+							
 								
 								
 								
