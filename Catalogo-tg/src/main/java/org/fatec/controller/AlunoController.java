@@ -10,9 +10,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.PostLoad;
+import javax.servlet.http.HttpSessionEvent;
 
 import org.fatec.impl.AlunoDAOImplementation;
 import org.fatec.model.Aluno;
+import org.fatec.session.SessionContext;
+import org.hibernate.jpa.internal.schemagen.GenerationSourceFromScript;
 
 @ManagedBean
 @SessionScoped
@@ -57,6 +60,15 @@ public class AlunoController {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void atualizarAluno(){
+		
+		System.out.println(SessionContext.getInstance().getAttribute("info_user"));
+		System.out.println("teste");
+	}
+	
+	
 	
 	
 	public void init() {

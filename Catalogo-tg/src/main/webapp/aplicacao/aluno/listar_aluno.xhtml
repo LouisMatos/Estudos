@@ -51,8 +51,19 @@
 						<td>#{o.registro}</td>
 						<th>
 							<center>
-								<div class="col-sm-4"><h:commandButton value="Atualizar" class="btn btn-warning" ></h:commandButton></div>
-								<div class="col-sm"><h:commandButton value="Excluir" class="btn btn-danger" actionListener="#{alunoController.excluirAluno(o.id)}"></h:commandButton></div>
+								<div class="col-sm-4"><h:commandButton value="Atualizar" class="btn btn-warning" action="#{alunoController.atualizarAluno}" ></h:commandButton></div>
+								<div class="col-sm">
+								
+								
+								<h:commandButton value="Excluir" class="btn btn-danger" actionListener="#{alunoController.excluirAluno(o.id)}"></h:commandButton>
+								
+								
+								
+								
+								
+								
+								
+								</div>
 							</center>
 						</th>
 					</tr>
