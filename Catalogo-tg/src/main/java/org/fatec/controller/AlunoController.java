@@ -26,8 +26,7 @@ public class AlunoController {
 	private AlunoDAOImplementation dao = new AlunoDAOImplementation();
 	
 	private FacesContext facesContext;
-	
-	
+
 	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();;
 
 	private int idt;
@@ -40,14 +39,12 @@ public class AlunoController {
 		return this.idt;
 	}
 	   
-	
-	
-
 	public void cadastrarAluno(){
 		try{
 			aluno.setNome(aluno.getNome().toUpperCase());
 			if(!dao.existeAluno(aluno)){
 				dao.save(aluno);
+				aluno = new Aluno();
 			}else{
 				facesContext = FacesContext.getCurrentInstance();
 				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um problema, tente novamente!", "Registro já cadastrado! Tente novamente!");
@@ -60,8 +57,7 @@ public class AlunoController {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public void excluirAluno(){
 		try{
 			dao.excluiAluno(getIdt());
@@ -70,20 +66,17 @@ public class AlunoController {
 		}
 	}
 	
-	
-	
 	public void init() {
 		alunos = dao.getAllAlunos();
 	}
-	
-	
+
 	public ArrayList<Aluno> getAlunos() {
 		return alunos;
 	}
 
-
 	public void cancelar(){
 		System.out.println("teste");
+		aluno = new Aluno();
 	}
 
 	public Aluno getAluno() {

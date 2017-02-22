@@ -48,7 +48,7 @@
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
 													<h:commandButton value="Efetuar Login"  class="form-control btn btn-register" disabled="" >
-												        <f:ajax execute="@form" render="erroLogin" listener="#{loginController.efetuarLogin}"  />
+												        <f:ajax execute="@form" render="erroLogin" listener="#{loginController.efetuarLogin}"  onevent="limpa_campos_login" />
 												    </h:commandButton>
 												</div>
 											</div>
@@ -80,7 +80,7 @@
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
 													<h:commandButton value="Gravar"  class="form-control btn btn-register" disabled="">
-												        <f:ajax execute="@form" render="validaUsuario" listener="#{usuarioComunController.grava}"  resetValues="true"/>
+												        <f:ajax execute="@form" render="validaUsuario" listener="#{usuarioComunController.grava}" onevent="limpa_campos_cad_usuario_comum"/>
 												    </h:commandButton>
 												    <h:outputText id="message" value="#{usuarioComunController.mensagem}" />
 													

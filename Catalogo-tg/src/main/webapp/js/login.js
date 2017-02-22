@@ -86,3 +86,5 @@ function limpa_campos_login(){
 	document.getElementById("login-form:email").value = "";
 	document.getElementById("login-form:senha").value = "";
 }
+
+
