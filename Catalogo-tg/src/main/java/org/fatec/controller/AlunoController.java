@@ -71,14 +71,6 @@ public class AlunoController {
 	}
 	
 	
-	public void atualizarAluno(){
-		
-		System.out.println(SessionContext.getInstance().getAttribute("info_user"));
-		System.out.println("teste");
-	}
-	
-	
-	
 	
 	public void init() {
 		alunos = dao.getAllAlunos();
@@ -101,35 +93,4 @@ public class AlunoController {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	 public void destroyWorld() {
-	        addMessage("System Error", "Please try again later.");
-	    }
-	     
-	    public void addMessage(String summary, String detail) {
-	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
-	        FacesContext.getCurrentInstance().addMessage(null, message);
-	    }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

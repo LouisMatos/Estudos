@@ -55,8 +55,6 @@ public class AlunoDAOImplementation extends GenericDAOImplementation<Aluno> impl
 		
 		int result = query.executeUpdate();
 		
-		System.out.println(result);
-		
 		entityManager.flush();
 		entityManager.getTransaction().commit();
 	}

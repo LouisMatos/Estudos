@@ -10,6 +10,7 @@
 		
  
 		<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+		
 
 
 	</h:head>
@@ -23,61 +24,49 @@
 				<hr/>
 			</div>
 		
-			<table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+			<table id="example" class="table table-bordred table-striped" >
 			
 				<thead>
 					<tr>
-						<th align="center">ID</th>
-						<th align="center">Nome</th>
-						<th align="center">Registro</th>
-						<th align="center">Acões</th>
+						<th style="text-align: center;">ID</th>
+						<th style="text-align: center;">Nome</th>
+						<th style="text-align: center;">Registro</th>
+						<th style="text-align: center;">Editar</th>
+						<th style="text-align: center;">Excluir</th>
 					</tr>
 				</thead>
 				<tfoot>
 		            <tr>
-		            	<th align="center">ID</th>
-		                <th align="center">Nome</th>
-		                <th align="center">Registro</th>
-		                <th align="center">Ações</th>
+		            	<th style="text-align: center;">ID</th>
+		                <th style="text-align: center;">Nome</th>
+		                <th style="text-align: center;">Registro</th>
+		                <th style="text-align: center;">Editar</th>
+						<th style="text-align: center;">Excluir</th>
 		            </tr>
 		       	</tfoot>
 				<tbody>
 				
 				<ui:repeat var="o" value="#{alunoController.alunos}" varStatus="status">
-			
 					<tr>
-						<td >#{o.id}</td>
-						<td>#{o.nome}</td>
-						<td>#{o.registro}</td>
-						<th>
-							<center>
-								<div class="col-sm-4"><h:commandButton value="Atualizar" class="btn btn-warning" action="#{alunoController.atualizarAluno}" ></h:commandButton></div>
-								<div class="col-sm">
-								
-								
-								<h:commandButton onclick="if (! confirm('Deseja realmente Excluir esse aluno?')) return false"
+						<td style="text-align: center;">#{o.id}</td>
+						<td style="text-align: left;">#{o.nome}</td>
+						<td style="text-align: center;">#{o.registro}</td>
+						<td style="text-align: center;">
+							<h:commandButton value="Atualizar" class="btn btn-warning" action="#{alunoController.atualizarAluno}" ></h:commandButton>
+						</td>
+						<td style="text-align: center;">
+							<h:commandButton onclick="if (! confirm('Deseja realmente Excluir esse aluno?')) return false"
 								value="Excluir" action="#{alunoController.excluirAluno}"  class="btn btn-danger" >
 								   <f:setPropertyActionListener target="#{alunoController.idt}" value="#{o.id}" />
-								</h:commandButton> 
-							
-								
-								
-								
-								</div>
-							</center>
-						</th>
+							</h:commandButton>
+						</td>
 					</tr>
-			
 			   	</ui:repeat>
-				
-				
 				</tbody>
-				
-			  
-			
 			</table>
-			
 		</div>
+
+		
 	</h:form>
 	</h:body>    
 </html>
