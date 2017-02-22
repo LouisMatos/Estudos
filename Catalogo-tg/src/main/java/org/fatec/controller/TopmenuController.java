@@ -23,4 +23,9 @@ public class TopmenuController {
 		FacesContext.getCurrentInstance().getExternalContext().redirect(context.getRequestContextPath() + "/aplicacao/aluno/listar_aluno.xhtml");
 	}
 	
+	public void cursoTeste() throws IOException{
+		context = FacesContext.getCurrentInstance().getExternalContext();
+		FacesContext.getCurrentInstance().getExternalContext().redirect(context.getRequestContextPath() + "/aplicacao/curso/teste.xhtml");
+	}
+	
 }
