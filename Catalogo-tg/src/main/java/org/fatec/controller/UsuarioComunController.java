@@ -2,15 +2,10 @@ package org.fatec.controller;
 
 import java.io.Serializable;
 
-import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
-import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIViewRoot;
-import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 
 import org.fatec.impl.UsuarioDAOImplementation;
 import org.fatec.model.TipoUsuario;
@@ -30,7 +25,6 @@ public class UsuarioComunController implements Serializable{
 	private UsuarioDAOImplementation dao = new UsuarioDAOImplementation();
 	
 	private FacesContext facesContext;
-	private FacesContext Context;
 	
 	private String mensagem;
 	

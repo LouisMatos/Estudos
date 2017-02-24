@@ -1,7 +1,6 @@
 package org.fatec.impl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -9,7 +8,6 @@ import javax.persistence.TypedQuery;
 import org.fatec.dao.AlunoDAO;
 import org.fatec.genericdao.GenericDAOImplementation;
 import org.fatec.model.Aluno;
-import org.fatec.model.Usuario;
 
 
 public class AlunoDAOImplementation extends GenericDAOImplementation<Aluno> implements AlunoDAO{
@@ -51,9 +49,8 @@ public class AlunoDAOImplementation extends GenericDAOImplementation<Aluno> impl
 			entityManager.getTransaction().begin();
 		}
 		
+		@SuppressWarnings("unused")
 		Query query = entityManager.createQuery("delete from Aluno u where u.id = :pID ").setParameter("pID", id);
-		
-		int result = query.executeUpdate();
 		
 		entityManager.flush();
 		entityManager.getTransaction().commit();

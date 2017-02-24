@@ -1,22 +1,15 @@
 package org.fatec.controller;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.persistence.PostLoad;
-import javax.servlet.http.HttpSessionEvent;
 
 import org.fatec.impl.AlunoDAOImplementation;
 import org.fatec.model.Aluno;
-import org.fatec.session.SessionContext;
-import org.hibernate.jpa.internal.schemagen.GenerationSourceFromScript;
 
 @ManagedBean
 @SessionScoped
@@ -40,7 +33,7 @@ public class AlunoController {
 		return this.idt;
 	}
 	   
-	public void cadastrarAluno(){
+	public void cadastrarAluno(ActionEvent actionEvent){
 		try{
 			aluno.setNome(aluno.getNome().toUpperCase());
 			if(!dao.existeAluno(aluno)){
