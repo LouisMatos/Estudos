@@ -47,7 +47,7 @@ public class LoginFilter implements Filter {
 			if ((user == null) || (user.equals(""))) {
 				//hreq.getRealPath("/index.xhtml");
 				
-				hresp.sendRedirect(context.getRequestContextPath() + "../../../../index.xhtml");
+				hresp.sendRedirect(context.getRequestContextPath());
 				return;
 			}
 		}

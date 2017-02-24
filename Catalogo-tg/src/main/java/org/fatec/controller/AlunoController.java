@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.persistence.PostLoad;
 import javax.servlet.http.HttpSessionEvent;
 
@@ -85,5 +86,9 @@ public class AlunoController {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+	
+	public void atualizarAluno(ActionEvent actionEvent){
+		System.out.println("teste");
 	}
 }

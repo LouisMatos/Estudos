@@ -1,0 +1,20 @@
+--<ScriptOptions statementTerminator=";"/>
+
+CREATE TABLE tb01_usuario (
+	ID BIGINT NOT NULL,
+	CONFIRMASENHA VARCHAR(255),
+	EMAIL VARCHAR(255),
+	SENHA VARCHAR(255),
+	TIPOUSUARIO INT,
+	PRIMARY KEY (ID)
+) ENGINE=InnoDB;
+
+CREATE TABLE tb02_aluno (
+	id INT NOT NULL,
+	nome VARCHAR(255),
+	registro VARCHAR(255),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+ALTER TABLE tb01_usuario ADD PRIMARY KEY (ID);
+
