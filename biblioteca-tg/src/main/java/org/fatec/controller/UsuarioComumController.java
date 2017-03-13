@@ -1,7 +1,8 @@
 package org.fatec.controller;
 
-import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -10,7 +11,8 @@ import org.fatec.model.TipoUsuario;
 import org.fatec.model.Usuario;
 import org.slf4j.Logger;
 
-@Model
+@ManagedBean
+@SessionScoped
 public class UsuarioComumController {
 
 	@Inject
@@ -32,7 +34,7 @@ public class UsuarioComumController {
 
 	public String grava() {
 		try {
-			if (usuario.getSenha().equals(usuario.getConfirmacaoSenha())) {
+			//if (usuario.getSenha().equals(usuario.getConfirmacaoSenha())) {
 
 				usuario.setTipoUsuario(TipoUsuario.COMUM);
 				if (!dao.existeEmail(usuario)) {
@@ -50,7 +52,7 @@ public class UsuarioComumController {
 				FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
 				facesContext.addMessage(null, m);
 				logger.info(m.getDetail());
-			} else {
+			/*} else {
 				String errorMessage = "Senhas não batem...";
 				FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage,
 						"Registration unsuccessful");
@@ -59,7 +61,7 @@ public class UsuarioComumController {
 
 				return "/login.xhtml?faces-redirect=false";
 
-			}
+			}*/
 
 		} catch (Exception e) {
 			String errorMessage = getRootErrorMessage(e);

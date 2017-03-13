@@ -3,12 +3,12 @@ package org.fatec.controller;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
 import org.fatec.model.TipoUsuario;
 import org.fatec.model.Usuario;
 
-@Named
+@ManagedBean
 @SessionScoped
 public class UsuarioLogadoController implements Serializable {
 
