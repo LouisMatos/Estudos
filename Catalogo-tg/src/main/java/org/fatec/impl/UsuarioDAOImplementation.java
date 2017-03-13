@@ -10,7 +10,7 @@ import org.jboss.logging.Logger;
 
 public class UsuarioDAOImplementation extends GenericDAOImplementation<Usuario> implements UsuarioDAO{
 	
-	Logger logger;
+	private static final Logger logger = Logger.getLogger(UsuarioDAOImplementation.class);
 	
 	public UsuarioDAOImplementation() {
 		super(Usuario.class);
@@ -48,12 +48,7 @@ public class UsuarioDAOImplementation extends GenericDAOImplementation<Usuario> 
 		if(encontrado ==  true){
 			usu = (Usuario) entityManager.createQuery("select u from Usuario u where u.email = :pEmail and u.senha = :pSenha").setParameter("pEmail", usuario.getEmail()).setParameter("pSenha", usuario.getSenha()).getSingleResult();
 		}
-		
-		
-		
-		
-		
-		
+		logger.info("teste");
 		//System.out.println("Existe Usuário " + usuario.getEmail() + "? " + encontrado);
 		entityManager.flush();
 		entityManager.getTransaction().commit();
