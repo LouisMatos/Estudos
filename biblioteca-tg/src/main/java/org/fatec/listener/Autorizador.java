@@ -33,12 +33,14 @@ public class Autorizador implements PhaseListener {
 		if (!usuarioLogado.isLogado()) {
 			handler.handleNavigation(context, null, "login?faces-redirect=true");
 			context.renderResponse();
+			return;
 		}
 		if (!usuarioLogado.isAdministrador()) {
 			if(!"/pesquisa.xhtml".equals(context.getViewRoot().getViewId()))
 			
 			handler.handleNavigation(context, null, "pesquisa?faces-redirect=true");
 			context.renderResponse();
+			return;
 		}
 	}
 
