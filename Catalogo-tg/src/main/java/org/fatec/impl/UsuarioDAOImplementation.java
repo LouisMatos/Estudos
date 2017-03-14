@@ -48,7 +48,7 @@ public class UsuarioDAOImplementation extends GenericDAOImplementation<Usuario> 
 		if(encontrado ==  true){
 			usu = (Usuario) entityManager.createQuery("select u from Usuario u where u.email = :pEmail and u.senha = :pSenha").setParameter("pEmail", usuario.getEmail()).setParameter("pSenha", usuario.getSenha()).getSingleResult();
 		}
-		logger.info("teste");
+		logger.info("Existe Usuário " + usuario.getEmail() + "? " + encontrado);
 		//System.out.println("Existe Usuário " + usuario.getEmail() + "? " + encontrado);
 		entityManager.flush();
 		entityManager.getTransaction().commit();
